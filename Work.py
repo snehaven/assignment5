@@ -31,7 +31,17 @@ def linear_search (n, k):
 #        k an integer representing the productivity factor
 # Output: returns v the minimum lines of code to write using binary search
 def binary_search (n, k):
-    return 2
+    low = 1
+    high = n
+    while low < high:
+        mid = (low + high) / 2
+        if sum_series(mid, k) > n:
+            high = mid
+        elif sum_series(mid, k) < n:
+            low = mid + 1
+        else:
+            return int(mid)
+    return int(low)
 
 
 
